@@ -8,6 +8,8 @@ import genericCheckpointing.util.MyAllTypesSecond;
 import genericCheckpointing.server.StoreRestoreI;
 import genericCheckpointing.server.RestoreI;
 import genericCheckpointing.server.StoreI;
+import genericCheckpointing.xmlStoreRestore.StoreRestoreHandler;
+import java.util.ArrayList;
 
 
 // import the other types used in this file
@@ -15,6 +17,8 @@ import genericCheckpointing.server.StoreI;
 public class Driver {
 
     public static void main(String[] args) {
+	int NUM_OF_OBJECTS = Integer.parseInt(args[1]);
+
 
 	// FIXME: read the value of checkpointFile from the command line
 
@@ -22,19 +26,26 @@ public class Driver {
 
 	// create an instance of StoreRestoreHandler (which implements
 	// the InvocationHandler
-
+	StoreRestoreHandler srHandler = new StoreRestoreHandler();
 	// create a proxy
 	StoreRestoreI cpointRef = (StoreRestoreI) pc.createProxy(
 								 new Class[] {
 								     StoreI.class, RestoreI.class
 								 },
-								 new StoreRestoreHandler()
+								 srHandler
 								 );
 
 	// FIXME: invoke a method on the handler instance to set the file name for checkpointFile and open the file
-
+	srHandler.setFilename(args[2]);
+	srHandler.openFile();
+	
 	MyAllTypesFirst myFirst;
 	MyAllTypesSecond  mySecond;
+
+	//Data structures for MyAllTypesFirst and MyAllTypesSecond
+	ArrayList<MyAllTypesFirst> myAllTypesFirstArr = new ArrayList<MyAllTypesFirst>();
+	ArrayList<MyAllTypesSecond> myAllTypesSecondArr = new ArrayList<MyAllTypesSecond>();
+		
 
 	// Use an if/switch to proceed according to the command line argument
 	// For deser, just deserliaze the input file into the data structure and then print the objects
@@ -51,8 +62,9 @@ public class Driver {
 	    mySecond = new MyAllTypesSecond();
 
 	    // FIXME: store myFirst and mySecond in the data structure
-	    ((StoreI) cpointRef).writeObj(myFirst, "XML");
-	    ((StoreI) cpointRef).writeObj(mySecond, "XML");
+	    // FIXME: authCode --put in temporary one "666" to compile
+	    ((StoreI) cpointRef).writeObj(myFirst,666 ,"XML");
+	    ((StoreI) cpointRef).writeObj(mySecond,666 ,"XML");
 
 	}
 
