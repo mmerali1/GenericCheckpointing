@@ -2,28 +2,35 @@
 package genericCheckpointing.driver;
 
 import genericCheckpointing.util.ProxyCreator;
+import genericCheckpointing.util.SerializableObject;
+import genericCheckpointing.util.MyAllTypesFirst;
+import genericCheckpointing.util.MyAllTypesSecond;
+import genericCheckpointing.server.StoreRestoreI;
+import genericCheckpointing.server.RestoreI;
+import genericCheckpointing.server.StoreI;
+
 
 // import the other types used in this file
 
 public class Driver {
-    
+
     public static void main(String[] args) {
-	
+
 	// FIXME: read the value of checkpointFile from the command line
-	
+
 	ProxyCreator pc = new ProxyCreator();
-	
+
 	// create an instance of StoreRestoreHandler (which implements
 	// the InvocationHandler
-	
+
 	// create a proxy
 	StoreRestoreI cpointRef = (StoreRestoreI) pc.createProxy(
 								 new Class[] {
 								     StoreI.class, RestoreI.class
-								 }, 
+								 },
 								 new StoreRestoreHandler()
 								 );
-		
+
 	// FIXME: invoke a method on the handler instance to set the file name for checkpointFile and open the file
 
 	MyAllTypesFirst myFirst;
@@ -40,8 +47,8 @@ public class Driver {
 
 	    // FIXME: create these object instances correctly using an explicit value constructor
 	    // use the index variable of this loop to change the values of the arguments to these constructors
-	    myFirst = new MyAllTypesFirst(...);
-	    mySecond = new MyAllTypesSecond(..);
+	    myFirst = new MyAllTypesFirst();
+	    mySecond = new MyAllTypesSecond();
 
 	    // FIXME: store myFirst and mySecond in the data structure
 	    ((StoreI) cpointRef).writeObj(myFirst, "XML");
@@ -60,9 +67,9 @@ public class Driver {
 
 	// FIXME: invoke a method on the handler to close the file (if it hasn't already been closed)
 
-	// FIXME: compare and confirm that the serialized and deserialzed objects are equal. 
-	// The comparison should use the equals and hashCode methods. Note that hashCode 
+	// FIXME: compare and confirm that the serialized and deserialzed objects are equal.
+	// The comparison should use the equals and hashCode methods. Note that hashCode
 	// is used for key-value based data structures
-    
+
     }
 }
