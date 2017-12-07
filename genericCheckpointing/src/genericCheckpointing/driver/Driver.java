@@ -20,7 +20,7 @@ public class Driver {
 		boolean readFlag = true;
 		String parsArg = "";
 		int NUM_OF_OBJECTS = 0;	
-		for(int i=0; i<args.length; i++){
+/*		for(int i=0; i<args.length; i++){
 			parsArg = args[i];
 			if (parsArg.charAt(0) == '$'){
 				readFlag = false;
@@ -38,7 +38,9 @@ public class Driver {
 				}
 			}	
 		}
-
+*/
+		//FIXME: fix command line
+		NUM_OF_OBJECTS = Integer.parseInt(args[1]);
 		if (readFlag == false){
 			System.err.println("Error: Invalid command line inputs");
 			System.exit(1);
@@ -55,12 +57,10 @@ public class Driver {
 			StoreRestoreHandler srHandler = new StoreRestoreHandler();
 			// create a proxy
 			StoreRestoreI cpointRef = (StoreRestoreI) pc.createProxy(
-										 new Class[] {
-											   StoreI.class, RestoreI.class
-										 },
+										 new Class[] { StoreI.class, RestoreI.class},
 										 srHandler
 										 );
-
+			System.out.println("hello1");
 			// FIXME: invoke a method on the handler instance to set the file name for checkpointFile and open the file
 			srHandler.setFilename(args[2]);
 			srHandler.openFile();
@@ -84,14 +84,15 @@ public class Driver {
 
 				  // FIXME: create these object instances correctly using an explicit value constructor
 				  // use the index variable of this loop to change the values of the arguments to these constructors
+				  System.out.println("hello3");
 				  myFirst = new MyAllTypesFirst();
 				  mySecond = new MyAllTypesSecond();
-
+				  System.out.println("hello2");
 				  // FIXME: store myFirst and mySecond in the data structure
 				  // FIXME: authCode --put in temporary one "666" to compile
 				  ((StoreI) cpointRef).writeObj(myFirst,666 ,"XML");
 				  ((StoreI) cpointRef).writeObj(mySecond,666 ,"XML");
-
+				  System.out.println("hello");
 			}
 
 			SerializableObject myRecordRet;

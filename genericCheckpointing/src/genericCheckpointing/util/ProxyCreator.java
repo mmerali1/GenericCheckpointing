@@ -10,10 +10,7 @@ public class ProxyCreator{
 	public StoreRestoreI createProxy(Class<?>[] interfaceArray, InvocationHandler handler){
 		StoreRestoreI  storeRestoreRef =
             (StoreRestoreI)
-            Proxy.newProxyInstance(getClass().getClassLoader(),
-                                   interfaceArray,
-                                   handler
-                                   );
+            Proxy.newProxyInstance(getClass().getClassLoader(),interfaceArray, handler);
 
 		return storeRestoreRef;
 	}
