@@ -1,0 +1,6 @@
+<DPSerialization>
+	<complexType xsi:type="package genericCheckpointing.util">
+		<myInt xsi:type="xsd:int">0</myInt>
+		<myOtherInt xsi:type="xsd:int">0</myInt>
+	</complexType
+</DPSerialization>

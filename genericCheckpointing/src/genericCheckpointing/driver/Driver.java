@@ -24,15 +24,21 @@ public class Driver {
 			parsArg = args[i];
 			if (parsArg.charAt(0) == '$'){
 				readFlag = false;
+        System.err.println("Not enough arguments");
 				break;
 			}
 			if (0 == i){
-				if ((parsArg.equals("serdeser")==false) || (parsArg.equals("deser")==false)) readFlag = false; break;
+				if ((parsArg.equals("serdeser")==false) && (parsArg.equals("deser")==false)){
+          readFlag = false;
+          System.out.println("Invalid Mode Entered");
+          break;
+        }
 			}
 			if (1 == i){
 				try{
 					NUM_OF_OBJECTS = Integer.parseInt(args[1]);
 				}catch(NumberFormatException e){
+          System.err.println("NumberFormatException");
 					readFlag = false;
 					break;
 				}
@@ -55,11 +61,7 @@ public class Driver {
 			StoreRestoreHandler srHandler = new StoreRestoreHandler();
 			// create a proxy
 			StoreRestoreI cpointRef = (StoreRestoreI) pc.createProxy(
-										 new Class[] {
-											   StoreI.class, RestoreI.class
-										 },
-										 srHandler
-										 );
+										 new Class[] {StoreI.class, RestoreI.class}, srHandler);
 
 			//FIXME: invoke a method on the handler instance to set the file name for checkpointFile and open the file
 			srHandler.setFilename(args[2]);
@@ -70,27 +72,23 @@ public class Driver {
 
 			//Data structures for MyAllTypesFirst and MyAllTypesSecond
 			Vector<SerializableObject> myAllTypeVec = new Vector<SerializableObject>(NUM_OF_OBJECTS);
-      myAllTypeVec.add(myFirst);
-      myAllTypeVec.add(mySecond);
-
-
 			// Use an if/switch to proceed according to the command line argument
 			// For deser, just deserliaze the input file into the data structure and then print the objects
-
+      if (args[0].equals("derser")){}
 			// The code below is for "serdeser" mode
 			// For "serdeser" mode, both the serialize and deserialize functionality should be called.
 
 			// create a data structure to store the objects being serialized
-			// NUM_OF_OBJECTS refers to the count for each of MyAllTypesFirst and MyAllTypesSecond
+			// NUM_OF_OBJECTS refers to the count for e ach of MyAllTypesFirst and MyAllTypesSecond
 			for (int i=0; i<NUM_OF_OBJECTS; i++) {
 
 				  // FIXME: create these object instances correctly using an explicit value constructor
 				  // use the index variable of this loop to change the values of the arguments to these constructors
-				  myFirst  = new MyAllTypesFirst(13*i, 18*i,213123*i, 342324*i, "Hello world"*i, true);
+				  myFirst  = new MyAllTypesFirst(13*i, 18*i,213123*i, 342324*i, "Hello world", true);
 				  //mySecond = new MyAllTypesSecond(60.0*i, 43.0*i, 1.23f, (short)12, (short)12, 'G');
-          myAllTypeVec.add("myFirst");
+          //myAllTypeVec.add("myFirst");
 
-				  // FIXME: store myFirst and mySecond in the data structure
+				  // FIXME: store myFirst and mySecond in the fg structure
 				  // FIXME: authCode --put in temporary one "666" to compile
 				  ((StoreI) cpointRef).writeObj(myFirst, 666 ,"XML");
 				  //((StoreI) cpointRef).writeObj(mySecond,666 ,"XML");
