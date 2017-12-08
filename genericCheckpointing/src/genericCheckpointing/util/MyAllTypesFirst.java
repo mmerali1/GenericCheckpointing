@@ -8,7 +8,8 @@ public class MyAllTypesFirst extends SerializableObject{
   private String myString;
   private boolean myBool;
 
-  /* NOT SURE IF WE NEED A CONSTRUCTOR, LEAVING IT OUT FOR NOW
+  public MyAllTypesFirst(){}
+
   public MyAllTypesFirst(int myIntIn, int myOtherIntIn, long myLongIn, long myOtherLongIn, String myStringIn, boolean myBoolIn){
     myInt = myIntIn;
     myOtherInt = myOtherIntIn;
@@ -16,7 +17,7 @@ public class MyAllTypesFirst extends SerializableObject{
     myOtherLong = myOtherLongIn;
     myString = myStringIn;
     myBool = myBoolIn;
-  }*/
+  }
 
   public void setMyInt(int input){
     myInt = input;
@@ -33,7 +34,7 @@ public class MyAllTypesFirst extends SerializableObject{
   public int getMyOtherInt(){
     return myOtherInt;
   }
-  
+
   public void setMyLong(long input){
     myLong = input;
   }

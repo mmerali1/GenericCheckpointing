@@ -9,7 +9,7 @@ import genericCheckpointing.server.StoreRestoreI;
 import genericCheckpointing.server.RestoreI;
 import genericCheckpointing.server.StoreI;
 import genericCheckpointing.xmlStoreRestore.StoreRestoreHandler;
-import java.util.ArrayList;
+import java.util.Vector;
 
 
 // import the other types used in this file
@@ -19,7 +19,7 @@ public class Driver {
   public static void main(String[] args) {
 		boolean readFlag = true;
 		String parsArg = "";
-		int NUM_OF_OBJECTS = 0;	
+		int NUM_OF_OBJECTS = 0;
 		for(int i=0; i<args.length; i++){
 			parsArg = args[i];
 			if (parsArg.charAt(0) == '$'){
@@ -36,7 +36,7 @@ public class Driver {
 					readFlag = false;
 					break;
 				}
-			}	
+			}
 		}
 
 		if (readFlag == false){
@@ -44,7 +44,7 @@ public class Driver {
 			System.exit(1);
 
 		} else {
-		
+
 
 			// FIXME: read the value of checkpointFile from the command line
 
@@ -61,20 +61,22 @@ public class Driver {
 										 srHandler
 										 );
 
-			// FIXME: invoke a method on the handler instance to set the file name for checkpointFile and open the file
+			//FIXME: invoke a method on the handler instance to set the file name for checkpointFile and open the file
 			srHandler.setFilename(args[2]);
 			srHandler.openFile();
-	
+
 			MyAllTypesFirst myFirst;
 			MyAllTypesSecond  mySecond;
 
 			//Data structures for MyAllTypesFirst and MyAllTypesSecond
-			ArrayList<MyAllTypesFirst> myAllTypesFirstArr = new ArrayList<MyAllTypesFirst>();
-			ArrayList<MyAllTypesSecond> myAllTypesSecondArr = new ArrayList<MyAllTypesSecond>();
-		
+			Vector<SerializableObject> myAllTypeVec = new Vector<SerializableObject>(NUM_OF_OBJECTS);
+      myAllTypeVec.add(myFirst);
+      myAllTypeVec.add(mySecond);
+
 
 			// Use an if/switch to proceed according to the command line argument
 			// For deser, just deserliaze the input file into the data structure and then print the objects
+
 			// The code below is for "serdeser" mode
 			// For "serdeser" mode, both the serialize and deserialize functionality should be called.
 
@@ -84,13 +86,14 @@ public class Driver {
 
 				  // FIXME: create these object instances correctly using an explicit value constructor
 				  // use the index variable of this loop to change the values of the arguments to these constructors
-				  myFirst = new MyAllTypesFirst();
-				  mySecond = new MyAllTypesSecond();
+				  myFirst  = new MyAllTypesFirst(13*i, 18*i,213123*i, 342324*i, "Hello world"*i, true);
+				  //mySecond = new MyAllTypesSecond(60.0*i, 43.0*i, 1.23f, (short)12, (short)12, 'G');
+          myAllTypeVec.add("myFirst");
 
 				  // FIXME: store myFirst and mySecond in the data structure
 				  // FIXME: authCode --put in temporary one "666" to compile
-				  ((StoreI) cpointRef).writeObj(myFirst,666 ,"XML");
-				  ((StoreI) cpointRef).writeObj(mySecond,666 ,"XML");
+				  ((StoreI) cpointRef).writeObj(myFirst, 666 ,"XML");
+				  //((StoreI) cpointRef).writeObj(mySecond,666 ,"XML");
 
 			}
 

@@ -8,6 +8,17 @@ public class MyAllTypesSecond extends SerializableObject{
   private short myOtherShortT;
   private char myCharT;
 
+  public MyAllTypesSecond(){}
+
+  public MyAllTypesSecond(double myDoubleTIn, double myOtherDoubleTIn, float myFloatTIn, short myShortTIn, short myOtherShortTIn, char myCharTIn){
+    myDoubleT = myDoubleTIn;
+    myOtherDoubleT = myOtherDoubleTIn;
+    myFloatT = myFloatTIn;
+    myShortT = myShortTIn;
+    myOtherShortT = myOtherShortTIn;
+    myCharT = myCharTIn;
+  }
+
   public void setMyDoubleT(double input){
     myDoubleT = input;
   }
