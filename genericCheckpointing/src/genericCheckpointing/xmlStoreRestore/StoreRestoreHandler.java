@@ -14,18 +14,21 @@ public class StoreRestoreHandler implements InvocationHandler{
 		String mName = m.getName();
 				if (mName == "writeObj"){
 					System.out.println("In method: " + mName);
-					System.out.println(args[0].toString());
-					for (int i=0; i<args.length; i++){
-						serializeData(args[i], new XMLSerialization());
-					}
+					serializeData((SerializableObject)args[0], new XMLSerialization());
 				}else{
-					System.out.println("In method: " + mName);
+					if(args[0].equals("XML")){
+						deserializeData(new XMLDeserialization());
+					}
 				}
 				return null;
 	}
 
-	public void serializeData(Object sObject, SerStrategy sStrat){
+	public void serializeData(SerializableObject sObject, SerStrategy sStrat){
 		sStrat.processInput(sObject);
+	}
+
+	public void deserializeData(SerStrategy sStrat){
+		sStrat.processInput(fp);
 	}
 
 	public void setFilename(String filenameIn){

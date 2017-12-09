@@ -21,7 +21,7 @@ public class FileProcessor {
      * @throws  FileNotFoundException if file cannot be found
      */
     public FileProcessor(String filename){
-	// FIXME: Uncomment if need logger	
+	// FIXME: Uncomment if need logger
 	//MyLogger.writeMessage("FileProcessor class constructor called", MyLogger.DebugLevel.CONSTRUCTOR);
 	file = new File(filename);
 	try{
@@ -38,15 +38,15 @@ public class FileProcessor {
        @return (String) returns one line from a text file
     */
     public String readLine(){
-		String temp = null;
-		if (sc.hasNext()){
-	    	temp = sc.next();
-		} else{
-	    	temp = null;
-		}
-		return temp;
+		    String temp = null;
+		      if (sc.hasNext()){
+	    	      temp = sc.next();
+		      } else{
+	    	          temp = null;
+		          }
+		      return temp;
     }
-    
+
     /**
        closeFile() closes the Scanner used in this class
        @return void

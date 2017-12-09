@@ -1,6 +1,5 @@
 <DPSerialization>
-	<complexType xsi:type="package genericCheckpointing.util">
-		<myInt xsi:type="xsd:int">0</myInt>
-		<myOtherInt xsi:type="xsd:int">0</myInt>
-	</complexType
+ <complexType xsi:type="genericCheckpointing.util.MyAllTypesFirst">
+  <myInt xsi:type="xsd:int">314</myInt>
+ </complexType>
 </DPSerialization>
