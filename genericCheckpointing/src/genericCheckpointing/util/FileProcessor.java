@@ -40,9 +40,9 @@ public class FileProcessor {
     public String readLine(){
 		    String temp = null;
 		      if (sc.hasNext()){
-	    	      temp = sc.next();
+	    	      temp = sc.nextLine();
 		      } else{
-	    	          temp = null;
+	    	          temp = "-1";
 		          }
 		      return temp;
     }

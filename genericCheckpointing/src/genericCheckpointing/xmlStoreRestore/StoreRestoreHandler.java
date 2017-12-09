@@ -17,7 +17,7 @@ public class StoreRestoreHandler implements InvocationHandler{
 					serializeData((SerializableObject)args[0], new XMLSerialization());
 				}else{
 					if(args[0].equals("XML")){
-						deserializeData(new XMLDeserialization());
+						return (Object)deserializeData(new XMLDeserialization());
 					}
 				}
 				return null;
@@ -27,8 +27,8 @@ public class StoreRestoreHandler implements InvocationHandler{
 		sStrat.processInput(sObject);
 	}
 
-	public void deserializeData(SerStrategy sStrat){
-		sStrat.processInput(fp);
+	public SerializableObject deserializeData(SerStrategy sStrat){
+		return sStrat.processInput(fp);
 	}
 
 	public void setFilename(String filenameIn){

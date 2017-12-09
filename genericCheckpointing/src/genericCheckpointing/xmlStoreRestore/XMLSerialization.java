@@ -80,7 +80,7 @@ public class XMLSerialization  implements SerStrategy {
     res.writeToFile(filename);
   }
   //Not implemented
-  public void processInput(FileProcessor fp){}
+  public SerializableObject processInput(FileProcessor fp){return null;}
 
 
 }
