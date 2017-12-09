@@ -7,6 +7,7 @@ public class XMLDeserialization implements SerStrategy{
     ArrayList<String> lines = new ArrayList<String>();
     String line = fp.readLine();
     String clsName = "";
+
     while(line != "-1"){
       //lines.add(line);
       //System.out.println(line);
@@ -18,6 +19,7 @@ public class XMLDeserialization implements SerStrategy{
           if(tokens[1].equals("complexType")){
             clsName = tokens[3].replaceAll("\"", "");
             System.out.println(clsName);
+
 
           }
       }
