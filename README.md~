@@ -35,7 +35,7 @@ offense.”
 
 Provide justification for Data Structures used in this assignment in
 term of Big O complexity (time and/or space)
-Used vector to store objects. O(n) average case
+
 -----------------------------------------------------------------------
 
 Provide list of citations (urls, etc.) from where you have taken code

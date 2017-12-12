@@ -1,0 +1,10 @@
+<DPSerialization>
+ <complexType xsi:type="genericCheckpointing.util.MyAllTypesSecond">
+  <myDoubleT xsi:type="xsd:double">3.1459</myDoubleT>
+  <myOtherDoubleT xsi:type="xsd:double">69.69</myOtherDoubleT>
+  <myFloatT xsi:type="xsd:float">3145.9</myFloatT>
+  <myShortT xsi:type="xsd:short">314</myShortT>
+   <myOtherShortT xsi:type="xsd:short">54</myOtherShortT>
+  <myCharT xsi:type="xsd:char">P</myCharT>
+ </complexType>
+</DPSerialization>

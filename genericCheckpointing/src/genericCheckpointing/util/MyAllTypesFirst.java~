@@ -75,7 +75,7 @@ public class MyAllTypesFirst extends SerializableObject{
   }
 
   public String toString(){
-    return "MyAllTypesFirst\n\tmyInt: " + myInt + "\n\tmyOtherInt: " + myOtherInt + "\n\tmyLong: " + myLong + "\n\tmyOtherLong: " + myOtherLong + "\n\tmyString: " + myString + "\n\tmyBool: " + myBool + "\n";
+    return "MyAllTypesFirst\n\tmyInt: " + myInt + "\n\tmyOtherInt: " + myOtherInt + "\n\tmyLong: " + myLong + "\n\tmyOtherLong: " + myOtherLong + "\n\tmyString" + myString + "\n\tmyBool: " + myBool + "\n";
   }
   
   @Override

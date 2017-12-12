@@ -90,7 +90,7 @@ public class XMLDeserialization implements SerStrategy{
 					ind++;
 				}
 
-				myStringValue = myStringValue.substring(1);
+				//myStringValue = myStringValue.substring(1);
 				deser.deserString(setMethodName, myStringValue, sObject, cls);
 				break;
 			case "xsd:boolean":

@@ -1,0 +1,40 @@
+<DPSerialization>
+	<complexType xsi:type="genericCheckpointing.util.MyAllTypesFirst">
+		<myInt xsi:type="xsd:int">875</myInt>
+		<myOtherInt xsi:type="xsd:int">1750</myOtherInt>
+		<myLong xsi:type="xsd:long">271832015414504900</myLong>
+		<myOtherLong xsi:type="xsd:long">135916007707252450</myOtherLong>
+		<myString xsi:type="xsd:string">lize and deserialize objects. The code should allow the conversion of objects into a wire format. The code should be designed using dynamic proxies and reflection so that addition of new objects or serialization formats causes minimal changes (reduces the ripple e</myString>
+		<myBool xsi:type="xsd:boolean">false</myBool>
+	</complexType
+</DPSerialization>
+<DPSerialization>
+	<complexType xsi:type="genericCheckpointing.util.MyAllTypesSecond">
+		<myDoubleT xsi:type="xsd:double">0.916102013042264</myDoubleT>
+		<myOtherDoubleT xsi:type="xsd:double">1.4161020130422641</myOtherDoubleT>
+		<myFloatT xsi:type="xsd:float">0.82891047</myFloatT>
+		<myShortT xsi:type="xsd:short">2848</myShortT>
+		<myOtherShortT xsi:type="xsd:short">6904</myOtherShortT>
+		<myCharT xsi:type="xsd:char">g</myCharT>
+	</complexType
+</DPSerialization>
+<DPSerialization>
+	<complexType xsi:type="genericCheckpointing.util.MyAllTypesFirst">
+		<myInt xsi:type="xsd:int">89</myInt>
+		<myOtherInt xsi:type="xsd:int">178</myOtherInt>
+		<myLong xsi:type="xsd:long">7194223449866904463</myLong>
+		<myOtherLong xsi:type="xsd:long">3597111724933452231</myOtherLong>
+		<myString xsi:type="xsd:string">e of this assignment is to create a generic library to serialize and deserialize objects. The code should allow the conversion of objects into a wire format. The code should be desi</myString>
+		<myBool xsi:type="xsd:boolean">true</myBool>
+	</complexType
+</DPSerialization>
+<DPSerialization>
+	<complexType xsi:type="genericCheckpointing.util.MyAllTypesSecond">
+		<myDoubleT xsi:type="xsd:double">0.2783403700726983</myDoubleT>
+		<myOtherDoubleT xsi:type="xsd:double">0.7783403700726983</myOtherDoubleT>
+		<myFloatT xsi:type="xsd:float">0.45001256</myFloatT>
+		<myShortT xsi:type="xsd:short">7456</myShortT>
+		<myOtherShortT xsi:type="xsd:short">10265</myOtherShortT>
+		<myCharT xsi:type="xsd:char">u</myCharT>
+	</complexType
+</DPSerialization>

@@ -1,5 +1,0 @@
-<DPSerialization>
- <complexType xsi:type="genericCheckpointing.util.MyAllTypesFirst">
-  <myInt xsi:type="xsd:int">314</myInt>
- </complexType>
-</DPSerialization>
